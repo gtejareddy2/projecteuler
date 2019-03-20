@@ -1,4 +1,4 @@
-import eulerlib
+import lib
 
 def compute():
 	n = 600851475143
@@ -12,7 +12,7 @@ def compute():
 
 def smallest_prime_factor(n):
 	assert n >= 2
-	for i in range(2, eulerlib.sqrt(n) + 1):
+	for i in range(2, lib.sqrt(n) + 1):
 		if n % i == 0:
 			return i
 	return n
