@@ -15,4 +15,30 @@ def sqrt(x):
 	return y
 
 
+def is_prime(x):
+	if x <= 1:
+		return False
+	elif x <= 3:
+		return True
+	elif x % 2 == 0:
+		return False
+	else:
+		for i in range(3, sqrt(x) + 1, 2):
+			if x % i == 0:
+				return False
+		return True
+
+
+def list_primality(n):
+	result = [True] * (n + 1)
+	result[0] = result[1] = False
+	for i in range(sqrt(n) + 1):
+		if result[i]:
+			for j in range(i * i, len(result), i):
+				result[j] = False
+	return result
+
+
+def list_primes(n):
+	return [i for (i, isprime) in enumerate(list_primality(n)) if isprime]
 
